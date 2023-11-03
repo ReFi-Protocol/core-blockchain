@@ -59,7 +59,7 @@ Skip the above commands if you have already updated the system and installed the
 Connect again to your server after reboot
 ```bash
   sudo -i
-  git clone https://github.com/Latest-PoB/core-blockchain.git
+  git clone https://github.com/Viridis-Network/core-blockchain.git
   cd core-blockchain
   ./node-setup.sh --validator 1
 ```
