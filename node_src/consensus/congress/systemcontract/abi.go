@@ -9,7 +9,7 @@ import (
 )
 
 // ValidatorsInteractiveABI contains all methods to interactive with validator contracts.
-const ValidatorsInteractiveABI = `[
+const ValidatorsInteractiveABI =`[
 	{
 		"anonymous": false,
 		"inputs": [
@@ -1238,7 +1238,7 @@ const ValidatorsInteractiveABI = `[
 	}
 ]`
 
-const PunishInteractiveABI = `[
+const PunishInteractiveABI =`[
 	{
 		"anonymous": false,
 		"inputs": [],
@@ -1603,7 +1603,7 @@ const PunishInteractiveABI = `[
 	}
 ]`
 
-const ProposalInteractiveABI = `[
+const ProposalInteractiveABI =`[
 	{
 		"anonymous": false,
 		"inputs": [
