@@ -9,7 +9,7 @@ import (
 )
 
 // ValidatorsInteractiveABI contains all methods to interactive with validator contracts.
-const ValidatorsInteractiveABI =`[
+const ValidatorsInteractiveABI = `[
 	{
 		"anonymous": false,
 		"inputs": [
@@ -442,7 +442,7 @@ const ValidatorsInteractiveABI =`[
 		"name": "ValidatorContractAddr",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "address payable",
 				"name": "",
 				"type": "address"
 			}
@@ -600,6 +600,19 @@ const ValidatorsInteractiveABI =`[
 		"name": "distributeBlockReward",
 		"outputs": [],
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "extraRewardsPerBlock",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -871,6 +884,25 @@ const ValidatorsInteractiveABI =`[
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "validator",
+				"type": "address"
+			}
+		],
+		"name": "mergedWithdrawRewards",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "status",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "minimumValidatorStaking",
 		"outputs": [
@@ -931,6 +963,19 @@ const ValidatorsInteractiveABI =`[
 		"name": "removeValidatorIncoming",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "rewardFund",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1024,6 +1069,19 @@ const ValidatorsInteractiveABI =`[
 	{
 		"inputs": [],
 		"name": "totalJailedHB",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalRewards",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1172,30 +1230,11 @@ const ValidatorsInteractiveABI =`[
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "merged",
 				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "validator",
-				"type": "address"
-			}
-		],
-		"name": "withdrawProfits",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1218,27 +1257,12 @@ const ValidatorsInteractiveABI =`[
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "validator",
-				"type": "address"
-			}
-		],
-		"name": "withdrawStakingReward",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"stateMutability": "payable",
+		"type": "receive"
 	}
 ]`
 
-const PunishInteractiveABI =`[
+const PunishInteractiveABI = `[
 	{
 		"anonymous": false,
 		"inputs": [],
@@ -1334,7 +1358,7 @@ const PunishInteractiveABI =`[
 		"name": "ValidatorContractAddr",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "address payable",
 				"name": "",
 				"type": "address"
 			}
@@ -1429,6 +1453,19 @@ const PunishInteractiveABI =`[
 	{
 		"inputs": [],
 		"name": "decreaseRate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "extraRewardsPerBlock",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1564,6 +1601,19 @@ const PunishInteractiveABI =`[
 	},
 	{
 		"inputs": [],
+		"name": "rewardFund",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "stakerPartPercent",
 		"outputs": [
 			{
@@ -1590,6 +1640,19 @@ const PunishInteractiveABI =`[
 	},
 	{
 		"inputs": [],
+		"name": "totalRewards",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "validatorPartPercent",
 		"outputs": [
 			{
@@ -1603,7 +1666,7 @@ const PunishInteractiveABI =`[
 	}
 ]`
 
-const ProposalInteractiveABI =`[
+const ProposalInteractiveABI = `[
 	{
 		"anonymous": false,
 		"inputs": [
@@ -1805,7 +1868,7 @@ const ProposalInteractiveABI =`[
 		"name": "ValidatorContractAddr",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "address payable",
 				"name": "",
 				"type": "address"
 			}
@@ -1887,6 +1950,19 @@ const ProposalInteractiveABI =`[
 			}
 		],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "extraRewardsPerBlock",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -2010,6 +2086,19 @@ const ProposalInteractiveABI =`[
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "rewardFund",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -2044,6 +2133,19 @@ const ProposalInteractiveABI =`[
 	{
 		"inputs": [],
 		"name": "totalBurnt",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalRewards",
 		"outputs": [
 			{
 				"internalType": "uint256",
